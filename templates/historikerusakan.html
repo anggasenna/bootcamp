@@ -101,7 +101,7 @@
                       </tr>
                       <tr>
                         <td class="cari">
-                          <select name="ruangan" id="exampleNamaRuangan" class="form-control">
+                          <select name="namaRuangan" id="exampleNamaRuangan" class="form-control">
                   			<option th:each="ruangan : ${listruangan}" th:value="${ruangan.id}" th:text="${ruangan.namaRuangan}"></option>
                   		  </select>
                         </td>
@@ -117,7 +117,7 @@
               </table>
             </div>
               <div style="height: 10px;"></div>
-              <table width="100%" class="table table-bordered table-striped" id="myTable" cellspacing="0">
+              <table width="100%" class="table table-bordered table-striped" id="example" cellspacing="0">
                   <thead>
                       <tr>
                       	  <th>ID Kerusakan</th>
@@ -128,7 +128,6 @@
                           <th>Fasilitas Rusak</th>
                           <th>Status Perbaikan</th>
                           <th>Attachment</th>
-                          <th>Konfirmasi Perbaikan</th>
                       </tr>
                   </thead>
                   <tbody>
@@ -140,11 +139,7 @@
                           <td th:text=${ldk.fasilitasRusak}></td>
                           <td th:text=${ldk.deskripsi}></td>
                           <td th:text=${ldk.statusPerbaikan}></td>
-                          <td th:text=${ldk.attachmentFoto}></td>
-                          <td>
-                          	<button type="button" class="btn btn-third btn-flat" data-toggle="modal" data-placement="bottom" title="Selesai Perbaikan" data-target="#dialogTerima"><i class="ion ion-checkmark-round"></i>
-                    		</button>
-                          </td>
+                          <td></td>
                       </tr>
                   </tbody>
               </table>
@@ -154,24 +149,6 @@
       </div>
     </section>
   </div>
-
-<div id="dialogTerima" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Konfirmasi Perbaikan</h4>
-        </div>
-        <div class="modal-body">
-          <p>Apakah Perbaikan Ini Telah Selesai?</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Ya</button>&nbsp
-          <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-        </div>
-      </div>
- </div>
-</div>
 
   <footer th:include="footer">
   </footer>
@@ -201,17 +178,11 @@
 <script src="dist/js/daypilot-all.min.js"></script>
 <script type="text/javascript" charset="utf8" src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" charset="utf8" src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-
 <script>
-$(document).ready(function() {
-    $('#myTable').DataTable( {
-    	"columnDefs": [ 
-    		{ "orderable": false, "targets": 8 } 
-    	]
-    } )
-} );
+  $(document).ready( function () {
+    $('#myTable').DataTable();
+  });
 </script>
-
 <script>
   $(document).ready(function(){
         $.fn.dataTable.ext.search.push(

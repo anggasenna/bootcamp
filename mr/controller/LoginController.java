@@ -11,7 +11,7 @@ import com.example.mr.model.DataLogin;
 import com.example.mr.services.DataLoginServices;
 
 @Controller
-@SessionAttributes("penggunaaktif")
+//@SessionAttributes("penggunaaktif")
 public class LoginController {
 	
 	@Autowired
@@ -27,17 +27,18 @@ public class LoginController {
 		return "index";
 	}
 	
-	@RequestMapping("/login")
-	public ModelAndView getLogin(@ModelAttribute("DataLogin") DataLogin dl) {
-		ModelAndView mav = new ModelAndView();
-		DataLogin penggunaaktif = service.getLogin(dl.getUsername(), dl.getPassword());
-		mav.addObject("penggunaaktif", penggunaaktif);
-		if (penggunaaktif.getLoginRole().getId()==1) {
-			mav.setViewName("/index");
-		} else {
-			mav.setViewName("/indexuser");
-		}
-		return mav;
-	}
+	
+//	@RequestMapping("/home")
+//	public ModelAndView getLogin(@ModelAttribute("DataLogin") DataLogin dl) {
+//		ModelAndView mav = new ModelAndView();
+//		DataLogin penggunaaktif = service.getLogin(dl.getUsername(), dl.getPassword());
+//		mav.addObject("penggunaaktif", penggunaaktif);
+//		if (penggunaaktif.getLoginRole().getId()==1) {
+//			mav.setViewName("/index");
+//		}else {
+//			mav.setViewName("/indexuser");
+//		}
+//		return mav;
+//	}
 	
 }

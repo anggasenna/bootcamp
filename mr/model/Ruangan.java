@@ -39,6 +39,13 @@ public class Ruangan extends Tambahan implements Serializable {
         keterangan = "Aktif";
     }
     
+    public boolean isSelected(Long id) {
+    	if (id==this.id) {
+    		return true;
+    	}else {
+    		return false;
+    	}
+    }
     public Long getId() {
         return id;
     }

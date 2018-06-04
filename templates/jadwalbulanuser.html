@@ -29,10 +29,22 @@
     <section class="sidebar">
       <ul class="sidebar-menu"><br/><br/>
         <li class="header" style="font-size: 20px; text-align: center;"><Strong>MENU UTAMA</Strong></li><br/>
-        <li class="active treeview">
-          <a href="/jadwalbulanuser">
+        <li class="active">
+          <a href="/jadwal">
             <i class="ion ion-calendar"></i>
             &nbsp &nbsp<span>Jadwal Ruangan</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="/pengajuan">
+            <i class="ion ion-compose"></i>
+            &nbsp &nbsp<span>Daftar Pengajuan</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="/histori">
+            <i class="ion ion-stats-bars"></i>
+            &nbsp &nbsp<span>Histori Pemakaian</span>
           </a>
         </li>
     </section>
@@ -49,13 +61,23 @@
       </ol>
     </section><br/>
     <div style="padding: 5px 10px 5px 10px">
-        <select style="float: left;" class="form-control">
-          <option value="">Meeting Room A</option>
-          <option value="">Meeting Room B</option>
-          <option value="">Meeting Room C</option>
-        </select>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+              <select style="float: left;" class="form-control">
+                <option th:each="ruangan : ${listruangan}" th:value="${ruangan.id}" th:text="${ruangan.namaRuangan}"></option>
+              </select>
+              
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <br/>
+		<button onclick="javascript:m.startDate = m.startDate.addMonths(-1); m.update();">Bulan Lalu</button>	        |
+		<button onclick="javascript:m.startDate = m.startDate.addMonths(1); m.update();">Bulan Berikut</button>	    
         <button class="tombol" disabled="">Bulan</button>
-        <button class="tombol" onclick="window.location.href='/jadwalmingguuser'">Minggu</button>
+        <button class="tombol" onclick="window.location.href='/minggu'">Hari</button>
         <div style="clear: both;"></div>
       </div>
       <div style="padding-left: 10px;padding-right: 10px;padding-bottom: 10px;">
@@ -90,9 +112,39 @@
 <script src="dist/js/demo.js"></script>
 <script src="dist/js/daypilot-all.min.js"></script>
 <script>
-  var m = new DayPilot.Month("m");
-  m.startDate = "2016-01-01";
-  m.init();
+DayPilot.Locale.register(
+		  new DayPilot.Locale('id-id', 
+		  {
+		    'dayNames':['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+		    'dayNamesShort':['Min','Sen','Sel','Rab','Kam','Jum','Sab'],
+		    'monthNames':['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+		    'monthNamesShort':['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'],
+		    'timePattern':'H:mm tt',
+		    'datePattern':'dd/MM/yyyy',
+		    'dateTimePattern':'dd/MM/yyyy H:mm tt',
+		    'timeFormat':'Clock24Hours',
+		    'weekStarts':0
+		  }
+		));
+var m = new DayPilot.Month("m");
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd = '0'+dd
+} 
+
+if(mm<10) {
+    mm = '0'+mm
+} 
+
+today = yyyy + '-' + mm + '-' + dd;
+m.locale = "id-id";
+m.startDate = today;
+m.showWeekend = false;
+m.init();
 </script>
 </body>
 </html>

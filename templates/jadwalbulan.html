@@ -91,14 +91,16 @@
             <tr>
               <td>
               <select style="float: left;" class="form-control">
-                <option value="">Meeting Room A</option>
-                <option value="">Meeting Room B</option>
-                <option value="">Meeting Room C</option>
+                <option th:each="ruangan : ${listruangan}" th:value="${ruangan.id}" th:text="${ruangan.namaRuangan}"></option>
               </select>
+              
               </td>
             </tr>
           </tbody>
         </table>
+        <br/>
+		<button onclick="javascript:m.startDate = m.startDate.addMonths(-1); m.update();">Bulan Lalu</button>	        |
+		<button onclick="javascript:m.startDate = m.startDate.addMonths(1); m.update();">Bulan Berikut</button>	    
         <button class="tombol" disabled="">Bulan</button>
         <button class="tombol" onclick="window.location.href='/jadwalminggu'">Hari</button>
         <div style="clear: both;"></div>
@@ -136,21 +138,36 @@
 <script src="dist/js/daypilot-all.min.js"></script>
 
 <script>
+DayPilot.Locale.register(
+		  new DayPilot.Locale('id-id', 
+		  {
+		    'dayNames':['Minggu','Senin','Selasa','Rabu','Kamis','Jumat','Sabtu'],
+		    'dayNamesShort':['Min','Sen','Sel','Rab','Kam','Jum','Sab'],
+		    'monthNames':['Januari','Februari','Maret','April','Mei','Juni','Juli','Agustus','September','Oktober','November','Desember'],
+		    'monthNamesShort':['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'],
+		    'timePattern':'H:mm tt',
+		    'datePattern':'dd/MM/yyyy',
+		    'dateTimePattern':'dd/MM/yyyy H:mm tt',
+		    'timeFormat':'Clock24Hours',
+		    'weekStarts':0
+		  }
+		));
   var m = new DayPilot.Month("m");
   var today = new Date();
   var dd = today.getDate();
-  var mm = today.getMonth()+1; //january is 0!
+  var mm = today.getMonth()+1; //January is 0!
   var yyyy = today.getFullYear();
-  
+
   if(dd<10) {
-	  dd = '0'+dd
-  }
-  
+      dd = '0'+dd
+  } 
+
   if(mm<10) {
-	  mm = '0'+mm
-  }
-  
+      mm = '0'+mm
+  } 
+
   today = yyyy + '-' + mm + '-' + dd;
+  m.locale = "id-id";
   m.startDate = today;
   m.showWeekend = false;
   m.init();

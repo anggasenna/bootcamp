@@ -14,7 +14,7 @@ import com.example.mr.model.Ruangan;
 import com.example.mr.services.RuanganServices;
 
 @Controller
-@SessionAttributes("penggunaaktif")
+//@SessionAttributes("penggunaaktif")
 public class RuanganController {
 
 	@Autowired

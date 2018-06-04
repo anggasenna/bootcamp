@@ -113,7 +113,7 @@
                   <td th:text=${lr.fasilitasTambahan}></td>
                   <td th:text=${lr.statusRuangan}></td>
                   <td th:text=${lr.keterangan}></td>
-                  <td><a th:href="@{updateruangan(id=${lr.id})}" class="btn btn-third btn-flat"><i class="ion ion-edit"></i>&nbsp;&nbsp;Ubah</a>
+                  <td><a th:href="@{updateruangan(id=${lr.id})}" class="btn btn-success btn-flat"><i class="ion ion-edit"></i>&nbsp;&nbsp;Ubah</a>
                   </td>
                 </tr>
               </tbody>
@@ -154,13 +154,14 @@
 <script type="text/javascript" charset="utf8" src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 <script>
-$(document).ready(function() {
-    $('#myTable').DataTable( {
-    	"columnDefs": [ 
-    		{ "orderable": false, "targets": 7 } 
-    	]
-    } )
-} );
+  $(document).ready( function () {
+    $('#myTable').DataTable({
+      "columnDefs": [{ 
+    	  "orderable": false,
+		  "targets": 7 
+		  }]
+    	})
+    });
 </script>
 
 </body>

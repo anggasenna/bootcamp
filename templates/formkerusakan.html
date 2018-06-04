@@ -100,7 +100,7 @@
         </div>
         <div class="col-lg-8 col-xs-6">
           <div class="box box-primary">
-            <form role="form" enctype="multipart/form-data" action="formkerusakan" method="post">
+            <form role="form" action="formkerusakan" method="post">
               <div class="box-body">
                 <div class="form-group">
                   <label for="exampleRuangan">Ruangan</label>
@@ -110,23 +110,23 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleKodeKerusakan">Kode Kerusakan</label>
-                  <input type="text" name="kodeKerusakan" id="kodeKerusakan" class="form-control" style="max-width: 30%">
+                  <input type="text" name="kodeKerusakan" id="kodeKerusakan" class="form-control" style="max-width: 30%" required>
                 </div>
                 <div class="form-group">
                   <label for="exampleTanggalRusak">Tanggal Rusak</label>
-                  <input type="text" name="tanggalRusak" id="tanggalRusak" class="form-control" style="max-width: 30%">
+                  <input type="text" name="tanggalRusak" id="tanggalRusak" class="form-control" style="max-width: 30%" required>
                 </div>
                 <div class="form-group">
                   <label for="exampleFasilitasRusak">Fasilitas Rusak</label>
-                  <textarea class="form-control" name="fasilitasRusak" id="exampleFasilitasRusak" style="max-width: 100%"></textarea> 
+                  <textarea class="form-control" name="fasilitasRusak" id="exampleFasilitasRusak" style="max-width: 100%" required></textarea> 
                 </div>
                 <div class="form-group">
                   <label for="exampleDeskripsiKerusakan">Deskripsi Kerusakan</label>
-                  <textarea class="form-control" name="deskripsi" id="exampleDeskripsiKerusakan" style="max-width: 100%"></textarea> 
+                  <textarea class="form-control" name="deskripsi" id="exampleDeskripsiKerusakan" style="max-width: 100%" required></textarea> 
                 </div>
                 <div class="form-group">
                   <label for="exampleInputFile">Unggah Foto Kerusakan</label>
-                  <input type="file" name="photo" id="exampleInputFile">
+                  <input type="file" name="attachmentFoto" id="exampleInputFile">
                 </div>
               </div>
               <div class="box-footer">

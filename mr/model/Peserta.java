@@ -8,7 +8,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Peserta implements Serializable {
+public class Peserta extends Tambahan implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @EmbeddedId
@@ -26,11 +26,12 @@ public class Peserta implements Serializable {
         statusHadir = "Pending";
     }
     
-    public Peserta(Karyawan karyawan,DataPengajuan pengajuan){
-        this.karyawan = karyawan;
-        this.pengajuan = pengajuan;
-        statusHadir = "Pending";
+    public Peserta(Long idKaryawan,Long idPengajuan){
+    	this.id = new PesertaPK(idPengajuan,idKaryawan);
+    	statusHadir = "Pending";  
     }
+    
+   
 
     @Override
     public int hashCode() {

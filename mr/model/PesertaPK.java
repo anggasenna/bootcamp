@@ -8,10 +8,10 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class PesertaPK implements Serializable {
     @Basic(optional = false)
-    @Column(insertable = false,updatable = false)
+   
     private long idPengajuan;
     @Basic(optional = false)
-    @Column(insertable = false,updatable = false)
+ 
     private long idKaryawan;
     
     public PesertaPK(){

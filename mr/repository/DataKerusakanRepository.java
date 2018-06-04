@@ -13,6 +13,6 @@ public interface DataKerusakanRepository extends CrudRepository<DataKerusakan, L
 	
 	@Query
 	(value="SELECT * FROM datakerusakan dk ORDER BY dk.status_perbaikan ASC", nativeQuery=true)
-	public List<DataKerusakan> sortByStatusPerbaikanAsc();
+	List<DataKerusakan> sortByStatusPerbaikanAsc();
 	
 }

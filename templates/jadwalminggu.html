@@ -134,9 +134,13 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <script src="dist/js/demo.js"></script>
 <script src="dist/js/daypilot-all.min.js"></script>
-<script type="text/javascript">
+<script>
   var dp = new DayPilot.Calendar("dp");
   dp.viewType = "Week";
+  dp.businessBeginsHour = 8;
+  dp.businessEndsHour = 18;
+  dp.showNonBusiness = false;
+  dp.showWeekend = false;
   dp.init();
 </script>
 </body>

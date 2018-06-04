@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="loginrole")
-public class LoginRole implements Serializable {
+public class LoginRole extends Tambahan implements Serializable {
 
     @OneToMany(mappedBy = "loginRole")
     private List<DataLogin> dataLogins;

@@ -29,10 +29,22 @@
     <section class="sidebar">
       <ul class="sidebar-menu"><br/><br/>
         <li class="header" style="font-size: 20px; text-align: center;"><Strong>MENU UTAMA</Strong></li><br/>
-        <li class="active treeview">
-          <a href="/jadwalmingguuser">
+        <li class="active">
+          <a href="/jadwal">
             <i class="ion ion-calendar"></i>
             &nbsp &nbsp<span>Jadwal Ruangan</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="/pengajuan">
+            <i class="ion ion-compose"></i>
+            &nbsp &nbsp<span>Daftar Pengajuan</span>
+          </a>
+        </li>
+        <li class="treeview">
+          <a href="/histori">
+            <i class="ion ion-stats-bars"></i>
+            &nbsp &nbsp<span>Histori Pemakaian</span>
           </a>
         </li>
     </section>
@@ -49,13 +61,19 @@
       </ol>
     </section><br/>
     <div style="padding: 5px 10px 5px 10px">
-        <select style="float: left;" class="form-control">
-          <option value="">Meeting Room A</option>
-          <option value="">Meeting Room B</option>
-          <option value="">Meeting Room C</option>
-        </select>
-        <button class="tombol" onclick="window.location.href='/jadwalbulanuser';">Bulan</button>
-        <button class="tombol" disabled="">Minggu</button>
+        <table>
+          <tbody>
+            <tr>
+              <td>
+              <select style="float: left;" class="form-control">
+                <option th:each="ruangan : ${listruangan}" th:value="${ruangan.id}" th:text="${ruangan.namaRuangan}"></option>
+              </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="tombol" onclick="window.location.href='/bulan';">Bulan</button>
+        <button class="tombol" disabled="">Hari</button>
         <div style="clear: both;"></div>
       </div>
       <div style="padding-left: 10px;padding-right: 10px;padding-bottom: 10px;min-height:100%;max-height: 100%;">
@@ -89,10 +107,14 @@
 <script src="dist/js/pages/dashboard.js"></script>
 <script src="dist/js/demo.js"></script>
 <script src="dist/js/daypilot-all.min.js"></script>
-<script type="text/javascript">
-  var dp = new DayPilot.Calendar("dp");
-  dp.viewType = "Week";
-  dp.init();
+<script>
+	var dp = new DayPilot.Calendar("dp");
+	dp.viewType = "Week";
+	dp.businessBeginsHour = 8;
+	dp.businessEndsHour = 18;
+	dp.showNonBusiness = false;
+	dp.showWeekend = false;
+	dp.init();
 </script>
 </body>
 </html>

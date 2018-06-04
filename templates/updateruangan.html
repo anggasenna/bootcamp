@@ -108,7 +108,7 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleNamaRuangan">Nama Ruangan</label>
-                  <input type="text" name="namaRuangan" class="form-control" th:value="${ruangan.namaRuangan}" style="max-width: 30%" required/>
+                  <input type="text" name="namaRuangan" class="form-control" th:selected="${ruangan.id}" th:value="${ruangan.namaRuangan}" style="max-width: 30%" required/>
                 </div>
                 <div class="form-group">
                   <label for="exampleKapasitas">Kapasitas</label>
@@ -129,12 +129,12 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleKeterangan">Keterangan</label></br>
-                  <input type="radio" name="keterangan" value="Aktif" th:checked="${ruangan.keterangan=='Aktif'}" required/>&nbsp;&nbsp;Aktif &nbsp;
+                  <input type="radio" name="keterangan" value="Aktif" th:checked="${ruangan.keterangan=='Aktif'}" th:required/>&nbsp;&nbsp;Aktif &nbsp;
                   <input type="radio" name="keterangan" value="Non Aktif" th:checked="${ruangan.keterangan=='Non Aktif'}"/>&nbsp;&nbsp;Non Aktif
                 </div>
                 <div class="form-group">
                   <label for="exampleStatusRuangan">Status Ruangan</label></br>
-                  <input type="radio" name="statusRuangan" value="Tersedia" th:checked="${ruangan.statusRuangan=='Tersedia'}" required/>&nbsp;&nbsp;Tersedia &nbsp;
+                  <input type="radio" name="statusRuangan" value="Tersedia" th:checked="${ruangan.statusRuangan=='Tersedia'}" th:required/>&nbsp;&nbsp;Tersedia &nbsp;
                   <input type="radio" name="statusRuangan" value="Tidak Tersedia" th:checked="${ruangan.statusRuangan=='Tidak Tersedia'}"/>&nbsp;&nbsp;Tidak Tersedia
                 </div>
                 <div class="form-group">
